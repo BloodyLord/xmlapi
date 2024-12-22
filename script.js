@@ -1,12 +1,13 @@
-let requestURL;
+let requestUsername;
 const textfield = document.querySelector(".url-input");
 const submitButton = document.getElementsByClassName('submit')[0];
 submitButton.addEventListener('click', function(e) {
-    requestURL = textfield.value;
-    if (requestURL === '') {
-        alert("Please enter a valid URL");
+    requestUsername = textfield.value;
+    if (requestUsername === '') {
+        alert("Please enter a valid username");
     }
 
+    let requestURL = `https://api.github.com/users/${requestUsername}`;
     //make xml object for the url.
     const xhr = new XMLHttpRequest();
     xhr.open("GET", requestURL);
